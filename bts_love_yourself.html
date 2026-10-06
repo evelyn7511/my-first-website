@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Love Yourself 系列專輯介紹與心境推薦</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Sans TC & Cormorant Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lyWonder: '#E0F2FE', // 淡藍
+                        lyHer: '#FCE7F3',    // 柔粉
+                        lyTear: '#1E293B',   // 深藍灰
+                        lyAnswer: '#FAF5FF', // 漸層光澤底色
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FAFAFC;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        /* 漸層背景過渡 */
+        .bg-gradient-wonder {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+        }
+        .bg-gradient-her {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+        }
+        .bg-gradient-tear {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+        }
+        .bg-gradient-answer {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
+        }
+
+        /* 按鈕樣式與動畫 */
+        .tab-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-btn.active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 微淡入淡出動畫 */
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 花卉裝飾風格線條 */
+        .flower-line {
+            border-bottom: 2px dashed rgba(148, 163, 184, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- 頂部 Header -->
+    <header class="w-full pt-10 pb-6 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <span class="font-serif italic text-xl tracking-widest text-slate-400 block mb-1">LOVE YOURSELF</span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-800 mb-3">
+                BTS 《Love Yourself》系列專輯介紹
+            </h1>
+            <p class="text-slate-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                從「起 Wonder」的悸動，到「結 Answer」的自愛。點擊下方階段，探索專輯概念並領取專屬於你的心境推薦活動。
+            </p>
+        </div>
+    </header>
+
+    <!-- 主要內容區塊 -->
+    <main class="max-w-4xl mx-auto px-4 w-full flex-grow mb-12">
+        
+        <!-- 4大階段選擇頁籤 (起 承 轉 結) -->
+        <nav class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            <button onclick="switchTab('wonder')" id="btn-wonder" class="tab-btn active bg-white border border-sky-200 rounded-2xl p-4 flex flex-col items-center hover:border-sky-400">
+                <span class="text-xs font-serif text-sky-500 uppercase tracking-widest mb-1">Wonder</span>
+                <span class="text-xl font-bold text-slate-800">起</span>
+                <span class="text-xs text-slate-500 mt-1">愛的起始與悸動</span>
+            </button>
+
+            <button onclick="switchTab('her')" id="btn-her" class="tab-btn bg-white border border-pink-200 rounded-2xl p-4 flex flex-col items-center hover:border-pink-400">
+                <span class="text-xs font-serif text-pink-500 uppercase tracking-widest mb-1">Her</span>
+                <span class="text-xl font-bold text-slate-800">承</span>
+                <span class="text-xs text-slate-500 mt-1">幸福與完美幻想</span>
+            </button>
+
+            <button onclick="switchTab('tear')" id="btn-tear" class="tab-btn bg-white border border-slate-300 rounded-2xl p-4 flex flex-col items-center hover:border-slate-600">
+                <span class="text-xs font-serif text-slate-500 uppercase tracking-widest mb-1">Tear</span>
+                <span class="text-xl font-bold text-slate-800">轉</span>
+                <span class="text-xs text-slate-500 mt-1">謊言離別與痛苦</span>
+            </button>
+
+            <button onclick="switchTab('answer')" id="btn-answer" class="tab-btn bg-white border border-purple-200 rounded-2xl p-4 flex flex-col items-center hover:border-purple-400">
+                <span class="text-xs font-serif text-purple-500 uppercase tracking-widest mb-1">Answer</span>
+                <span class="text-xl font-bold text-slate-800">結</span>
+                <span class="text-xs text-slate-500 mt-1">接納與愛我自己</span>
+            </button>
+        </nav>
+
+        <!-- 專輯簡介展示卡片 -->
+        <section id="album-card" class="bg-gradient-wonder rounded-3xl p-6 md:p-8 shadow-sm transition-all duration-500 mb-8 border border-white/60">
+            <div id="card-content" class="fade-in">
+                <!-- 動態注入內容 -->
+            </div>
+        </section>
+
+        <!-- 互動活動推薦區塊 -->
+        <section class="bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-sparkles text-amber-400 text-lg"></i>
+                    <h2 class="text-lg md:text-xl font-bold text-slate-800">專屬心境活動推薦</h2>
+                </div>
+                <span id="activity-stage-tag" class="text-xs px-3 py-1 rounded-full font-medium bg-sky-100 text-sky-700">
+                    起 Wonder 階段
+                </span>
+            </div>
+
+            <!-- 推薦活動內容展示 -->
+            <div id="activity-display" class="my-6 min-h-[140px] flex flex-col justify-center items-center text-center p-4 rounded-2xl bg-slate-50/80 border border-slate-100 fade-in">
+                <!-- 動態內容注入 -->
+            </div>
+
+            <!-- 按鈕：再換一個推薦 -->
+            <div class="text-center pt-2">
+                <button onclick="getRandomActivity()" class="inline-flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-900 text-white font-medium py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 text-sm md:text-base">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>再換一個活動</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="w-full text-center py-6 text-slate-400 text-xs border-t border-slate-200/60">
+        <p>BTS LOVE YOURSELF Fan Guide &bull; Love Yourself, Love Myself</p>
+    </footer>
+
+    <script>
+        // 4大專輯核心資料
+        const albumsData = {
+            wonder: {
+                title: "LOVE YOURSELF 起 'Wonder'",
+                englishTitle: "LOVE YOURSELF 起 'Wonder'",
+                badge: "起 (Wonder)",
+                bgClass: "bg-gradient-wonder",
+                tagColor: "bg-sky-100 text-sky-700",
+                buttonActiveStyle: "border-sky-400 bg-sky-50/50 shadow-sky-100",
+                concept: "描述陷入愛河前的驚喜、悸動與純真感。作為整個 Love Yourself 系列的開端，它捕捉了青春中最耀眼、如夢似幻的瞬間，代表曲《Euphoria》展現了滿溢的純粹幸福。",
+                tracks: ["Euphoria", "Theme of LOVE YOURSELF 起 Wonder"],
+                colorStyle: "透明天藍與清晨陽光的明亮純白",
+                activities: [
+                    {
+                        title: "戴上耳機去公園散步",
+                        reason: "聽著《Euphoria》，觀察陽光穿過樹葉的微光，感受生活中純粹的小確幸。"
+                    },
+                    {
+                        title: "嘗試一件全新的小嗜好",
+                        reason: "正如「起」代表著全新的開始，嘗試未曾做過的事能幫你找回對生活的心動與好奇。"
+                    },
+                    {
+                        title: "寫下三件讓你感到心動的小事",
+                        reason: "重溫那些讓嘴角不自覺上揚的時刻，紀錄下愛意在心中萌芽的悸動。"
+                    },
+                    {
+                        title: "買一束色彩明亮的花送给自己",
+                        reason: "用鮮豔的花朵裝飾房間，體驗如 Love Yourself 花卉線條般綻放的青春生命力。"
+                    },
+                    {
+                        title: "找一個視野開闊的地方抬頭看天空",
+                        reason: "感受微風與晴空的遼闊，讓心靈放空，重新擁抱充滿希望的新篇章。"
+                    }
+                ]
+            },
+            her: {
+                title: "LOVE YOURSELF 承 'Her'",
+                englishTitle: "LOVE YOURSELF 承 'Her'",
+                badge: "承 (Her)",
+                bgClass: "bg-gradient-her",
+                tagColor: "bg-pink-100 text-pink-700",
+                buttonActiveStyle: "border-pink-400 bg-pink-50/50 shadow-pink-100",
+                concept: "展現沉浸於愛之中的幸福、甜美與完美幻想。認為對方的出現是宇宙的安排與命運（DNA），充滿著對愛情的無條件渴望與沉醉。",
+                tracks: ["DNA", "Best Of Me", "Dimple", "Pied Piper", "MIC Drop"],
+                colorStyle: "柔和粉紅與活力滿載的鮮艷色彩",
+                activities: [
+                    {
+                        title: "給好朋友發訊息表達感謝與愛意",
+                        reason: "「承」充滿著對愛的擁抱，大方表達愛能讓幸福感在彼此之間加倍傳遞。"
+                    },
+                    {
+                        title: "播放《DNA》並跟著節奏自由跳舞",
+                        reason: "釋放你的活力與熱情，享受命運般歡快節奏帶來的純粹快樂。"
+                    },
+                    {
+                        title: "安排一次屬於自己的甜點放鬆時光",
+                        reason: "品嚐一份精緻的蛋糕或甜品，享受被甜蜜氛圍包圍的極致寵溺。"
+                    },
+                    {
+                        title: "製作一張充滿喜愛事物的照片拼貼",
+                        reason: "收集那些讓你感到無比美好的瞬間，留住這份如《Her》一般的繽紛色彩。"
+                    },
+                    {
+                        title: "重溫一部讓你嘴角上揚的浪漫電影",
+                        reason: "沉浸在美好的故事裡，感受真摯情感帶來的溫暖與滿足。"
+                    }
+                ]
+            },
+            tear: {
+                title: "LOVE YOURSELF 轉 'Tear'",
+                englishTitle: "LOVE YOURSELF 轉 'Tear'",
+                badge: "轉 (Tear)",
+                bgClass: "bg-gradient-tear",
+                tagColor: "bg-slate-800 text-slate-200",
+                buttonActiveStyle: "border-slate-600 bg-slate-800/10 shadow-slate-200",
+                concept: "揭露為了維持愛而戴上面具、失去自我後的痛苦與離別。當愛建立在虛假的完美之上，終將面臨崩解與體悟（FAKE LOVE）。這是通往真愛前必須經歷的黑暗與陣痛。",
+                tracks: ["FAKE LOVE", "Singularity", "The Truth Untold (無法傳遞的真心)", "Anpanman", "Outro : Tear"],
+                colorStyle: "深邃暗黑、極簡灰與沉穩墨色",
+                activities: [
+                    {
+                        title: "寫一封不需要寄出的信",
+                        reason: "誠實抒發心中的委屈、難過與壓抑，把情緒釋放在紙上，卸下堅強的面具。"
+                    },
+                    {
+                        title: "關掉燈光，獨自聽著《Singularity》深呼吸",
+                        reason: "允許自己擁抱孤獨與脆弱，黑夜是修復內心創傷最好的安全空間。"
+                    },
+                    {
+                        title: "整理房間，丟掉不再需要的舊物",
+                        reason: "通過清理物理空間來告別過往的執念，為心靈創造重新呼吸的餘裕。"
+                    },
+                    {
+                        title: "進行一次徹底的「數位減毒」小時光",
+                        reason: "遠離社群媒體的比較與雜訊，停止迎合外在世界，回歸平靜內心。"
+                    },
+                    {
+                        title: "痛快地看一部感人的電影或大哭一場",
+                        reason: "眼淚不是脆弱，而是心靈自我療癒與釋放積壓情緒的健康過程。"
+                    }
+                ]
+            },
+            answer: {
+                title: "LOVE YOURSELF 結 'Answer'",
+                englishTitle: "LOVE YOURSELF 結 'Answer'",
+                badge: "結 (Answer)",
+                bgClass: "bg-gradient-answer",
+                tagColor: "bg-purple-100 text-purple-700",
+                buttonActiveStyle: "border-purple-400 bg-purple-50/50 shadow-purple-100",
+                concept: "整個系列的終極答案——「解開迷惘的鑰匙，就在於接納完整的自己」。無論過往有何缺陷或傷痕，勇敢愛這個獨一無二的自己，才能真正走向自由與慶典（IDOL、Epiphany）。",
+                tracks: ["IDOL", "Epiphany", "Answer : Love Myself", "I'm Fine", "Trivia 轉 : Seesaw"],
+                colorStyle: "夢幻全息漸層（Hologram）、炫彩紫與金色光芒",
+                activities: [
+                    {
+                        title: "對著鏡子裡的自己說一句「你做得很好」",
+                        reason: "正如《Epiphany》所唱的：『我想愛的是這世界上，雖然不完美但無比美麗的我。』"
+                    },
+                    {
+                        title: "為自己準備一頓豐盛又營養的晚餐",
+                        reason: "愛自己的第一步，就是細心照顧好自己的身體與日常生活。"
+                    },
+                    {
+                        title: "播放《IDOL》並大聲跟唱歡呼",
+                        reason: "無需在意他人眼光，為自己的獨特與存在慶祝，自信宣示 You can't stop me loving myself！"
+                    },
+                    {
+                        title: "寫下 5 個你最喜歡自己的特質或優點",
+                        reason: "練習接納自己的全貌，學會欣賞那些讓你與眾不同的珍貴閃光點。"
+                    },
+                    {
+                        title: "給未來的自己寫一張溫柔的明信片",
+                        reason: "許下承諾：無論未來遇到什麼困難，你都會成為自己最堅實的後盾。"
+                    }
+                ]
+            }
+        };
+
+        // 當前選擇的階段狀態
+        let currentTab = 'wonder';
+        let lastActivityIndex = -1;
+
+        // 切換頁籤函數
+        function switchTab(tabKey) {
+            currentTab = tabKey;
+            const data = albumsData[tabKey];
+
+            // 1. 更新頁籤按鈕樣式
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-sky-400', 'border-pink-400', 'border-slate-600', 'border-purple-400', 'bg-sky-50/50', 'bg-pink-50/50', 'bg-slate-800/10', 'bg-purple-50/50');
+            });
+            const activeBtn = document.getElementById(`btn-${tabKey}`);
+            activeBtn.classList.add('active');
+
+            // 2. 更新專輯卡片內容與背景
+            const albumCard = document.getElementById('album-card');
+            const cardContent = document.getElementById('card-content');
+            
+            // 替換背景色
+            albumCard.className = `rounded-3xl p-6 md:p-8 shadow-sm transition-all duration-500 mb-8 border border-white/60 ${data.bgClass}`;
+
+            // 動態卡片內容 HTML
+            cardContent.className = 'fade-in';
+            cardContent.innerHTML = `
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+                    <div>
+                        <span class="text-xs font-serif tracking-widest uppercase opacity-80 block">${data.englishTitle}</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">${data.title}</h2>
+                    </div>
+                    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wider ${data.tagColor} shadow-sm">
+                        概念階段：${data.badge}
+                    </span>
+                </div>
+
+                <p class="text-sm md:text-base leading-relaxed mb-6 opacity-90">
+                    ${data.concept}
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4 text-xs md:text-sm pt-4 border-t ${tabKey === 'tear' ? 'border-slate-700' : 'border-slate-200/60'}">
+                    <div>
+                        <span class="font-bold block mb-1">🎵 代表曲目 / 收錄曲：</span>
+                        <p class="opacity-80">${data.tracks.join(' • ')}</p>
+                    </div>
+                    <div>
+                        <span class="font-bold block mb-1">🎨 視覺與色彩風格：</span>
+                        <p class="opacity-80">${data.colorStyle}</p>
+                    </div>
+                </div>
+            `;
+
+            // 3. 更新推薦活動區塊標籤並更換新活動
+            const activityTag = document.getElementById('activity-stage-tag');
+            activityTag.className = `text-xs px-3 py-1 rounded-full font-medium ${data.tagColor}`;
+            activityTag.innerText = `${data.badge} 階段`;
+
+            // 重置索引並獲取新活動
+            lastActivityIndex = -1;
+            getRandomActivity();
+        }
+
+        // 隨機獲取推薦活動（避免連續重複）
+        function getRandomActivity() {
+            const activities = albumsData[currentTab].activities;
+            let newIndex;
+            
+            if (activities.length > 1) {
+                do {
+                    newIndex = Math.floor(Math.random() * activities.length);
+                } while (newIndex === lastActivityIndex);
+            } else {
+                newIndex = 0;
+            }
+            
+            lastActivityIndex = newIndex;
+            const item = activities[newIndex];
+
+            const displayArea = document.getElementById('activity-display');
+            
+            // 觸發淡入效果
+            displayArea.classList.remove('fade-in');
+            void displayArea.offsetWidth; // 觸發 reflow
+            displayArea.classList.add('fade-in');
+
+            displayArea.innerHTML = `
+                <div class="max-w-xl">
+                    <h3 class="text-lg md:text-xl font-bold text-slate-800 mb-2 flex items-center justify-center gap-2">
+                        <span>${item.title}</span>
+                    </h3>
+                    <div class="flower-line my-3 w-16 mx-auto"></div>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed italic">
+                        「${item.reason}」
+                    </p>
+                </div>
+            `;
+        }
+
+        // 頁面載入完成後初始化
+        window.onload = function() {
+            switchTab('wonder');
+        };
+    </script>
+</body>
+</html>
